@@ -1,4 +1,4 @@
-# [English](https://github.com/hxz393/UTAdder/blob/main/doc/README_EN.md) | [中文](https://github.com/hxz393/UTAdder/blob/main/README.md)
+# [English](https://github.com/hxz393/UTAdder/blob/main/README_EN.md) | [中文](https://github.com/hxz393/UTAdder/blob/main/README.md)
 
 # Introduction
 
