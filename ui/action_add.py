@@ -25,6 +25,7 @@ class ActionAdd(QThread):
     :param lang_manager: 语言管理器，用于更新动作的显示语言。
     :param config_manager: 配置管理器，用于读取和修改设置。
     :param sub_dir: 设置此批种子储存文件夹。
+    :param pick_torrent_name: 保留种子名作为子文件夹名。
     """
     initialize_signal = pyqtSignal()
     finalize_signal = pyqtSignal()
@@ -33,7 +34,8 @@ class ActionAdd(QThread):
     def __init__(self,
                  lang_manager: LangManager,
                  config_manager: ConfigManager,
-                 sub_dir: str):
+                 sub_dir: str,
+                 pick_torrent_name: bool):
         super().__init__()
         self.lang_manager = lang_manager
         self.lang = self.lang_manager.get_lang()
@@ -41,6 +43,7 @@ class ActionAdd(QThread):
         self.config = self.config_manager.get_config()
         # 拼接设置中的下载根目录目录和用户输入保存目录名
         self.config['save_path'] = os.path.join(self.config['save_path'], sub_dir)
+        self.config['pick_torrent_name'] = pick_torrent_name
 
     def run(self) -> None:
         """

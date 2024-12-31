@@ -64,7 +64,7 @@ Click "Confirm" to save your changes. The configuration will be stored in `confi
 
 The primary feature of UTAdder is to quickly add multiple torrent files into uTorrent in one go. Here's how it works:
 
-- **Save to**: If you don't care about organizing your downloads, you could simply drag and drop multiple torrents into uTorrent. But if you regularly categorize downloads as soon as you add them, UTAdder helps. For example, if your root download directory is `D:\Download` and you set the save directory to `ABBA`, the completed download path becomes `D:\Download\ABBA`. After bulk adding, UTAdder clears the save to field, so you can immediately set a different directory for your next batch (e.g., `AC-DC`).
+- **Save to**: If you don't care about organizing your downloads, you could simply drag and drop multiple torrents into uTorrent. But if you regularly categorize downloads as soon as you add them, UTAdder helps. For example, if your root download directory is `D:\Download` and you set the save directory to `ABBA`, the completed download path becomes `D:\Download\ABBA`. After bulk adding, UTAdder clears the save to field, so you can immediately set a different directory for your next batch (e.g., `AC-DC`). When you check the box next to the input field, the torrent name will be retained as a new subdirectory level.
 - **Adding Tasks**: After you specify the directories, click "Add" to import all torrents from the configured torrent files folder into uTorrent. The speed might not look instantaneous, but it's still much faster than adding them one by one through the GUI. When it's done, the bottom-right corner of window will show the total number of added tasks or display any error messages.
 - **Handling Torrent Files**: After adding them, the original torrent files could be deleted. However, because there might be a slight delay before uTorrent fully processes them, deleting these files too soon can cause problems. To avoid this, UTAdder automatically moves successfully added torrents into an `added` subfolder within the torrent files directory, ensuring that nothing gets removed prematurely.
 
@@ -89,6 +89,12 @@ After adding tasks, uTorrent's main window will always pop up. There's no workin
 # Changelog
 
 Updates are irregular; I might not even use small version increments.
+
+## Version 1.1.0 (2024-12-31)
+
+**Updates**:
+
+1. Added an option to keep the torrent name as the task directory.
 
 ## Version 1.0.0 (2024-12-19)
 

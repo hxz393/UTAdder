@@ -10,7 +10,7 @@ import logging
 
 from PyQt5.QtCore import pyqtSignal
 from PyQt5.QtGui import QIcon
-from PyQt5.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout, QPushButton, QLineEdit, QLabel
+from PyQt5.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout, QPushButton, QLineEdit, QLabel, QCheckBox
 
 from config.settings import GITHUB_URL
 from ui.action_add import ActionAdd
@@ -53,6 +53,7 @@ class MainWidget(QWidget):
         self.label.setText(f"<b>{self.lang['main_2']}</b>")
         self.btn_set.setText(self.lang['main_3'])
         self.btn_add.setText(self.lang['main_4'])
+        self.check_box.setToolTip(self.lang['main_5'])
 
     def init_ui(self) -> None:
         """
@@ -60,13 +61,15 @@ class MainWidget(QWidget):
 
         :return: 无返回值。
         """
-        # 第一行：标签 + 输入框
+        # 第一行：标签 + 输入框 + 勾选框
         self.label = QLabel(self)
         self.line_edit = QLineEdit(self)
+        self.check_box = QCheckBox()
 
         h_layout_top = QHBoxLayout()
         h_layout_top.addWidget(self.label)
         h_layout_top.addWidget(self.line_edit)
+        h_layout_top.addWidget(self.check_box)
 
         # 第二行：设置 + 添加按钮
         self.btn_set = QPushButton(self)
@@ -108,7 +111,8 @@ class MainWidget(QWidget):
         :return: 无返回值。
         """
         self.sub_dir = self.line_edit.text()
-        self.actionAdd = ActionAdd(self.lang_manager, self.config_manager, self.sub_dir)
+        self.pick_torrent_name = self.check_box.isChecked()
+        self.actionAdd = ActionAdd(self.lang_manager, self.config_manager, self.sub_dir, self.pick_torrent_name)
         self.actionAdd.status_updated.connect(self.forward_status)
         self.actionAdd.initialize_signal.connect(self.initialize)
         self.actionAdd.finalize_signal.connect(self.finalize)

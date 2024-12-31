@@ -3,7 +3,7 @@
 """
 # 程序信息
 PROGRAM_NAME = 'UTAdder'
-VERSION_INFO = 'v1.0.0'
+VERSION_INFO = 'v1.1.0'
 AUTHOR_NAME = 'assassing'
 CONTACT_MAIL = 'hxz393@gmail.com'
 WEBSITE_URL = 'https://blog.x2b.net'
