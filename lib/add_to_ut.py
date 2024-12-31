@@ -43,9 +43,9 @@ def add_to_ut(config: Dict[str, str]) -> Optional[int]:
                 # 先移动到完成目录再添加
                 shutil.move(full_path, added_path)
                 add_path = os.path.join(added_path, item)
-                save_path = f"{save_path}/{torrent_name}" if pick_torrent_name else save_path
+                save_new_path = os.path.join(save_path, torrent_name) if pick_torrent_name else save_path
                 logger.info(add_path)
-                subprocess.run([ut_path, "/DIRECTORY", save_path, add_path], capture_output=True, text=True)
+                subprocess.run([ut_path, "/DIRECTORY", save_new_path, add_path], capture_output=True, text=True)
                 added += 1
         # 也可以一次性添加，torrent_paths 为所有种子路径列表
         # subprocess.run([ut_path, "/DIRECTORY", save_path]+torrent_paths, capture_output=True, text=True)
